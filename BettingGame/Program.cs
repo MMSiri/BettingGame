@@ -19,7 +19,7 @@ namespace BettingGame
 
             while (player.Cash > 0)
             {
-                Console.WriteLine(player.Name + " has " + "$" + player.Cash);
+                player.WriteMyInfo();
 
                 Console.Write("Please input how much you want to bet: ");
                 string howMuch = Console.ReadLine();
@@ -34,17 +34,15 @@ namespace BettingGame
                 {
                     int pot = amount * 2;
 
-                    double rng = random.NextDouble();
-
-                    if (rng > odds)
+                    if (random.NextDouble() > odds)
                     {
                         Console.WriteLine("Huzzah, it's a win of " + "$" + pot + " for you!");
-                        player.Cash += pot;
+                        player.ReceiveCash(pot);
                     }
                     else
                     {
                         Console.WriteLine("You lose " + "$" + amount + "." + " Bad luck, friend.");
-                        player.Cash -= amount;
+                        player.GiveCash(amount);
                     }
                 }
   
