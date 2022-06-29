@@ -4,6 +4,7 @@ namespace BettingGame
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             Random random = new Random();
@@ -52,7 +53,7 @@ namespace BettingGame
             string gameReset = Console.ReadLine();
             if (gameReset == "Restart")
             {
-                
+                Main(args);
             }
 
         }
